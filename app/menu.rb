@@ -58,11 +58,11 @@ class AppDelegate
       addItemWithTitle("Quit #{appName}", action: 'terminate:', keyEquivalent: 'q')
     end
 
-    addMenu('File') do
-      addItemWithTitle('New', action: 'newDocument:', keyEquivalent: 'n')
+    addMenu('Archivo') do
+      addItemWithTitle('Nuevo', action: 'newDocument:', keyEquivalent: 'n')
       addItemWithTitle('Open…', action: 'openDocument:', keyEquivalent: 'o')
       addItem(NSMenuItem.separatorItem)
-      addItemWithTitle('Close', action: 'performClose:', keyEquivalent: 'w')
+      addItemWithTitle('Close', action: 'performClose:', keyEquivalent: 'ñ')
       addItemWithTitle('Save…', action: 'saveDocument:', keyEquivalent: 's')
       addItemWithTitle('Revert to Saved', action: 'revertDocumentToSaved:', keyEquivalent: '')
       addItem(NSMenuItem.separatorItem)
@@ -89,33 +89,10 @@ class AppDelegate
       addItem(speech_menu)
     end
 
-    fontMenu = createMenu('Font') do
-      addItemWithTitle('Show Fonts', action: 'orderFrontFontPanel:', keyEquivalent: 't')
-      addItemWithTitle('Bold', action: 'addFontTrait:', keyEquivalent: 'b')
-      addItemWithTitle('Italic', action: 'addFontTrait:', keyEquivalent: 'i')
-      addItemWithTitle('Underline', action: 'underline:', keyEquivalent: 'u')
-      addItem(NSMenuItem.separatorItem)
-      addItemWithTitle('Bigger', action: 'modifyFont:', keyEquivalent: '+')
-      addItemWithTitle('Smaller', action: 'modifyFont:', keyEquivalent: '-')
-    end
-
-    textMenu = createMenu('Text') do
-      addItemWithTitle('Align Left', action: 'alignLeft:', keyEquivalent: '{')
-      addItemWithTitle('Center', action: 'alignCenter:', keyEquivalent: '|')
-      addItemWithTitle('Justify', action: 'alignJustified:', keyEquivalent: '')
-      addItemWithTitle('Align Right', action: 'alignRight:', keyEquivalent: '}')
-      addItem(NSMenuItem.separatorItem)
-      addItemWithTitle('Show Ruler', action: 'toggleRuler:', keyEquivalent: '')
-      item = addItemWithTitle('Copy Ruler', action: 'copyRuler:', keyEquivalent: 'c')
-      item.keyEquivalentModifierMask = NSCommandKeyMask|NSControlKeyMask
-      item = addItemWithTitle('Paste Ruler', action: 'pasteRuler:', keyEquivalent: 'v')
-      item.keyEquivalentModifierMask = NSCommandKeyMask|NSControlKeyMask
-    end
-
-    addMenu('Format') do
-      addItem fontMenu
-      addItem textMenu
-    end
+    # addMenu('Format') do
+    #   addItem fontMenu
+    #   addItem textMenu
+    # end
 
     addMenu('View') do
       item = addItemWithTitle('Show Toolbar', action: 'toggleToolbarShown:', keyEquivalent: 't')
