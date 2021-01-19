@@ -15,4 +15,5 @@ Motion::Project::App.setup do |app|
   app.name = 'MyApp'
   app.deployment_target = '10.13'
   app.info_plist['CFBundleIconName'] = 'AppIcon'
+  app.info_plist['NSAppTransportSecurity'] = { 'NSAllowsArbitraryLoads' => true }
 end
