@@ -9,6 +9,10 @@ class AppDelegate
       styleMask: NSTitledWindowMask|NSClosableWindowMask|NSMiniaturizableWindowMask|NSResizableWindowMask,
       backing: NSBackingStoreBuffered,
       defer: false)
+
+    @main_controller = MainViewController.alloc.initWithNibName(nil, bundle: nil)
+    @mainWindow.contentView = @main_controller.view
+
     @mainWindow.title = NSBundle.mainBundle.infoDictionary['CFBundleName']
     @mainWindow.orderFrontRegardless
   end
