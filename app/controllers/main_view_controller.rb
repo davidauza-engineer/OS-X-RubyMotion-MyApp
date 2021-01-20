@@ -3,6 +3,7 @@ class MainViewController < NSViewController
   def loadView
     self.view = MainView.alloc.initWithFrame(CGRect.new([0, 0], [200, 360]))
     loadFriendsButton
+    loadResponseTextField
   end
 
   def loadFriendsButton
@@ -14,7 +15,17 @@ class MainViewController < NSViewController
     view.addSubview(button)
   end
 
+  def loadResponseTextField
+    text_field = NSTextField.alloc.initWithFrame([[20, 20], [300, 200]])
+    text_field.editable = true
+    text_field.backgroundColor = NSColor.clearColor
+
+    view.addSubview(text_field)
+
+    @response_field = WeakRef.new(text_field)
+  end
+
   def request_friends
-    puts Friend.request
+    @response_field.stringValue = Friend.request.to_s
   end
 end
